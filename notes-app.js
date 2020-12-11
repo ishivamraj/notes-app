@@ -49,8 +49,12 @@ document.querySelector("#search-text").addEventListener("input", function (e) {
   renderNotes(notes, filters); //Initially app renders something
 });
 
-document.querySelector('#name-form').addEventListener('submit', function(e){
-  e.preventDefault();
-  console.log(e.target.elements.firstName.value)
-  e.target.elements.firstName.value = ''
+// document.querySelector('#name-form').addEventListener('submit', function(e){
+//   e.preventDefault();
+//   console.log(e.target.elements.firstName.value)
+//   e.target.elements.firstName.value = ''
+// })
+
+document.querySelector('#for-fun').addEventListener('change', function(e){
+  console.log(e.target.checked)
 })

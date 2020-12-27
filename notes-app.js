@@ -1,14 +1,10 @@
-let notes = [];
+const notes = getSavedNotes();
 
 const filters = {
   searchText: "",
 };
 
-//Retrieving existing saved data data
-const notesJSON = localStorage.getItem("notes");
-if (notesJSON !== null) {
-  notes = JSON.parse(notesJSON);
-}
+
 
 // localStorage.setItem('location', 'Philadelphia')
 // console.log(localStorage.getItem('location'))
@@ -23,23 +19,6 @@ if (notesJSON !== null) {
 // const user = JSON.parse(userJSON)
 // console.log(`Username is ${user.name} and age is ${user.age}`)
 
-const renderNotes = function (notes, filters) {
-  const filteredNotes = notes.filter(function (note) {
-    return note.title.toLowerCase().includes(filters.searchText.toLowerCase());
-  });
-
-  document.querySelector("#notes").innerHTML = "";
-
-  filteredNotes.forEach(function (note) {
-    const noteEl = document.createElement("p");
-    if (note.title.length > 0) {
-      noteEl.textContent = note.title;
-    } else {
-      noteEl.textContent = 'Unnamed Note'
-    }
-    document.querySelector("#notes").appendChild(noteEl);
-  });
-};
 
 renderNotes(notes, filters); //Initially app renders something
 

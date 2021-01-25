@@ -23,13 +23,16 @@ const filters = {
 renderNotes(notes, filters); //Initially app renders something
 
 document.querySelector("#create-note").addEventListener("click", function (e) {
+  const hash = uuidv4();
   notes.push({
-    id: uuidv4(),
+    id: hash,
     title: "",
     body: "",
   });
   saveNotes(notes)
-  renderNotes(notes, filters);
+  // renderNotes(notes, filters);
+  // location.assign("/edit.html#",hash)
+  location.assign(`/edit.html#${hash}`);
   // console.log(e);
   // e.target.textContent = "The Button was clicked!";
 });

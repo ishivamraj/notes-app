@@ -24,10 +24,11 @@ renderNotes(notes, filters); //Initially app renders something
 
 document.querySelector("#create-note").addEventListener("click", function (e) {
   notes.push({
+    id: uuidv4(),
     title: "",
     body: "",
   });
-  localStorage.setItem("notes", JSON.stringify(notes));
+  saveNotes(notes)
   renderNotes(notes, filters);
   // console.log(e);
   // e.target.textContent = "The Button was clicked!";

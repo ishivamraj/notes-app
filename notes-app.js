@@ -1,4 +1,4 @@
-const notes = getSavedNotes();
+let notes = getSavedNotes();
 
 const filters = {
   searchText: "",
@@ -56,3 +56,25 @@ document.querySelector("#search-text").addEventListener("input", function (e) {
 document.querySelector("#filter-by").addEventListener("change", function (e) {
   console.log(e.target.value);
 });
+
+window.addEventListener("storage", function (e) {
+  if (e.key === "notes") {
+    notes = JSON.parse(e.newValue)
+    renderNotes(notes, filters)
+  }
+});
+
+//Unix Epoch - January 1st 1970 00:00:00
+//-60000 = 1min in past
+const now = new Date()
+const timeStamp = now.getTime()
+const myDate = new Date(timeStamp)
+console.log(myDate.getFullYear())
+
+// console.log(now.toString())
+// console.log(`Year: ${now.getFullYear()}`)//gives year
+// console.log(`Month: ${now.getMonth()}`)//gives current month as index. Jan-0, feb-1
+// console.log(`Day: ${now.getDate()}`)//returns the day of month
+// console.log(`Hours: ${now.getHours()}`)//returns current hour
+// console.log(`Minutes: ${now.getMinutes()}`)//returns current minutes
+// console.log(`Seconds: ${now.getSeconds()}`)//returns current seconds

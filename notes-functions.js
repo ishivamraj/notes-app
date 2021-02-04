@@ -4,7 +4,7 @@ const getSavedNotes = function () {
   if (notesJSON !== null) {
     return JSON.parse(notesJSON);
   } else {
-    return [];
+    return []     
   }
 };
 
